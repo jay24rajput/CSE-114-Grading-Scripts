@@ -8,3 +8,7 @@
 ```sh
 python3 rename.py
 ```
+
+## Grading Scripts
+1. Download the grading script corresponding to particular assignment/lab
+2. Extract the zip file for each student and place the grading script in the directory containing the solution files(like `Solution1.java`, `Solution2.java`, etc)

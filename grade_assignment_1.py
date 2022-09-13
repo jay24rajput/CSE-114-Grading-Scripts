@@ -41,48 +41,45 @@ def compile_java(java_file):
         return False
     return True
 
-def execute_java(java_file, stdin):
-    java_class,ext = os.path.splitext(java_file)
-    cmd = ['java', java_class]
+def execute_java(java_file, stdin, files):
+    # java_class,ext = os.path.splitext(java_file)
+    cmd = ['java', java_file]
     try:
         proc = subprocess.Popen(cmd, stdin=PIPE, stdout=PIPE, stderr=STDOUT)
         stdout,stderr = proc.communicate(stdin)
         stdout = stdout.decode('utf-8')
-        if java_file == 'Lab2Q1.java':
+        if java_file == files[0]:
             check_question_1(stdout)
 
-        elif java_file == 'Lab2Q2.java':
+        elif java_file == files[1]:
             check_question_2(stdout)
 
-        elif java_file == 'Lab2Q3.java':
+        elif java_file == files[2]:
             check_question_3(stdout)
 
-        elif java_file == 'Lab2Q4.java':
+        elif java_file == files[3]:
             check_question_4(stdout)
     except:
         print("Runtime Error")
 
 
 # success = compile_java('Lab2Q1.java')
-files = os.listdir()
-for file in files:
-    if file.endswith('.zip'):
-        zipped_file = file
-        break
+# files = os.listdir()
+# for file in files:
+#     if file.endswith('.zip'):
+#         zipped_file = file
+#         break
 
-with zipfile.ZipFile(zipped_file, 'r') as zip_ref:
-    zip_ref.extractall()
+# with zipfile.ZipFile(zipped_file, 'r') as zip_ref:
+#     zip_ref.extractall()
 
-os.chdir(zipped_file.split('.')[0])
+# os.chdir(zipped_file.split('.')[0])
 
 
 params = ['55.5 3.5 10.5', '5.5 50.9 4.5','43.5', '']
-files = []
-for file in os.listdir():
-    if file.endswith('.java'):
-        files.append(file)
-for index, file in enumerate(sorted(files)):
+files = ['GetEnergy.java', 'GetAcceleration.java', 'GetFarenheit.java','GetSchedule.java']
+for index, file in enumerate(files):
     print(f"{bcolors.HEADER}--------------Grading file "+ file + f"------------------{bcolors.ENDC}")
     success = compile_java(file)
     if success:
-        execute_java(file, params[index].encode())
+        execute_java(file, params[index].encode(), files)
