@@ -76,8 +76,8 @@ def execute_java(java_file, stdin, files):
 # os.chdir(zipped_file.split('.')[0])
 
 
-params = ['55.5 3.5 10.5', '5.5 50.9 4.5','43.5', '']
 files = ['GetEnergy.java', 'GetAcceleration.java', 'GetFarenheit.java','GetSchedule.java']
+params = ['55.5 3.5 10.5', '5.5 50.9 4.5','43.5', '']
 for index, file in enumerate(files):
     print(f"{bcolors.HEADER}--------------Grading file "+ file + f"------------------{bcolors.ENDC}")
     success = compile_java(file)
