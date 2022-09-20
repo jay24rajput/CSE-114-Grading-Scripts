@@ -22,7 +22,7 @@ class bcolors:
 def check_question_1(output):
     output = output.split('\n')
     if len(output) == 3:
-        print(output.split('\n')[1])
+        print(output[1])
     else:
         print(output)
 
@@ -30,7 +30,7 @@ def check_question_1(output):
 def check_question_2(output):
     output = output.split('\n')
     if len(output) == 3:
-        print(output.split('\n')[1])
+        print(output[1])
     else:
         print(output)
 
