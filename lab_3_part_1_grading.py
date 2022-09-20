@@ -20,11 +20,19 @@ class bcolors:
 
 
 def check_question_1(output):
-    print(output.split('\n')[1])
+    output = output.split('\n')
+    if len(output) == 3:
+        print(output.split('\n')[1])
+    else:
+        print(output)
 
 
 def check_question_2(output):
-    print(output.split('\n')[1])
+    output = output.split('\n')
+    if len(output) == 3:
+        print(output.split('\n')[1])
+    else:
+        print(output)
 
 
 def compile_java(java_file):
